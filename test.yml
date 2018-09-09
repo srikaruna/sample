@@ -1,0 +1,8 @@
+---
+ - hosts: 192.168.1.212
+   remote_user: root
+   tasks:
+    - yum: name=httpd state=present
+    - yum: name=git   state=present
+    - service: name=httpd state=started enabled=yes
+    - copy: src=/opt/index.html dest=/var/www/html
